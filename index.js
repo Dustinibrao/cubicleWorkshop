@@ -5,15 +5,6 @@ const app = require("express")();
 
 require("./config/express")(app);
 require("./config/routes")(app);
-app.set("view engine", "hbs");
-app.engine(
-	"hbs",
-	exphbs({
-		extname: "hbs",
-		defaultLayout: "index",
-		layoutsDir: __dirname + "/views",
-	})
-);
 
 app.listen(
 	config.port,
