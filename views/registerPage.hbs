@@ -1,46 +1,58 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Register Page</title>
-  <link href="./css/site.css" type="text/css" rel="stylesheet">
-  <link rel='shortcut icon' type='image/x-icon' href='./images/favicon.png' />
-</head>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Register Page</title>
+		<link href="./css/site.css" type="text/css" rel="stylesheet" />
+		<link
+			rel="shortcut icon"
+			type="image/x-icon"
+			href="./images/favicon.png"
+		/>
+	</head>
 
-<body>
-  <div class="container">
-    <header>
-      <ul>
-        <li><img class="logo" src="./images/logo.png"></li>
-        <li><a href="/">Browse</a></li>
-        <li><a href="/">About</a></li>
-        <li><a href="/">Add a Cube</a></li>
-        <li><a href="/">Add Accessory</a></li>
-        <li><a href="/">Logout</a></li>
-        <li><a href="/">Login</a></li>
-        <li><a href="/">Register</a></li>
-      </ul>
-    </header>
-    <main>
-	<h1>Register Form</h1>
-<div class="form">
-    <form action='/' method="POST">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username">
+	<body>
+		<div class="container">
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password">
+			<header>
+				<ul>
+					<li><img class="logo" src="/images/logo.png" /></li>
+					<li><a href="/">Browse</a></li>
+					<li><a href="/about">About</a></li>
+					{{#if isAuthenticated}}
+						<li><a href="/create">Add a Cube</a></li>
+						<li><a href="/create/accessory">Add Accessory</a></li>
+						<li><a href="/logout">Logout</a></li>
+					{{else}}
+						<li><a href="/login">Login</a></li>
+						<li><a href="/register">Register</a></li>
+					{{/if}}
 
-        <label for="repeatPassword">Re-Password</label>
-        <input type="password" id="repeatPassword" name="repeatPassword">
-        <input type="submit" value="Register">
-    </form>
-</div>
-    </main>
-  </div>
-  <footer>@Cubicle: Exercise for Express.js and Handlebars</footer>
+				</ul>
+			</header>
+			<main>
+				<h1>Register Form</h1>
+				<div class="form">
+					<form action="/register" method="POST">
+						<label for="username">Username</label>
+						<input type="text" id="username" name="username" />
 
-</body>
+						<label for="password">Password</label>
+						<input type="password" id="password" name="password" />
+
+						<label for="repeatPassword">Re-Password</label>
+						<input
+							type="password"
+							id="repeatPassword"
+							name="repeatPassword"
+						/>
+						<input type="submit" value="Register" />
+					</form>
+				</div>
+			</main>
+		</div>
+		<footer>@Cubicle: Exercise for Express.js and Handlebars</footer>
+
+	</body>
 
 </html>
